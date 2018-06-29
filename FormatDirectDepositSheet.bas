@@ -1,4 +1,3 @@
-Attribute VB_Name = "Module1"
 'Function to format and merge Payment Info and Invoice information workbooks exported from Foundation accounting software
 'into a single sheet.
 Sub FormatDirectDepositSheet()
@@ -30,8 +29,6 @@ Private Sub BrokerPaymentDeleteColumns()
         .MergeCells = False
     End With
     Selection.Font.Bold = True
-    Cells.Select
-    Selection.Columns.AutoFit
     Range("B2").Select
     Range(Selection, Selection.End(xlDown)).Select
     Selection.NumberFormat = "m/d/yyyy"
@@ -108,9 +105,6 @@ Private Sub AutoFillTruckerEmail()
     Next c
     
     wb.Close (False) 'Closes workbook, doesn't save changes
-    
-    Range("G:G").Select 'Selects Email column
-    Selection.Columns.AutoFit 'Autofits column to accomadate email addresses
 End Sub
 
 Private Sub FillInvoiceNum()
@@ -155,6 +149,6 @@ Private Sub FillInvoiceNum()
     
     wb.Close (False) 'Closes workbook, doesn't save changes
     Application.CutCopyMode = False 'removes marching ants from copying rows
-    Range("H:H").Select 'Selects Email column
-    Selection.Columns.AutoFit 'Autofits column to accomodate email addresses
+    Range("A:I").Select 'Selects Email column
+    Selection.Columns.AutoFit 'Autofits all columns
 End Sub
